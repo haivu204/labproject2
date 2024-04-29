@@ -3,13 +3,24 @@ from google.cloud import firestore
 
 # Authenticate to Firestore with the JSON account key
 import threading
-
 import time
 import queue
+
+from google.oauth2 import service_account
+
 q = queue.Queue()
 
+####
+# import json
+#
+# key_dict = json.loads(st.secrets["textkey"])
+# creds = service_account.Credentials.from_service_account_info(key_dict)
+# db = firestore.Client(credentials=creds, project="Lab Project")
+
+####
 
 db = firestore.Client.from_service_account_json("firebasekey.json")
+
 # Create a reference to the Google post.
 doc_ref = db.collection("dungdata").document("realtime")
     # Then get the data at that reference.
