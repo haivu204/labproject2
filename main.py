@@ -8,7 +8,7 @@ doc_ref = db.collection("dungdata").document("realtime")
     # Then get the data at that reference.
 doc = doc_ref.get()
 
-submit = st.button("Turn fan on")
+
 def update_dashboard():
     while True:
         doc_ref = db.collection("haidata").document("realtime")
