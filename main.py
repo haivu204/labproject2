@@ -40,13 +40,11 @@ st.title("Air quality measuring")
 submit = st.button("Turn fan on")
 doc_ref = db.collection("haidata").document("control")
 if submit:
-    if int(doc_ref.get("quat")):
+    if int(doc_ref.get("url")):
         doc_ref.update({
-            "title": "quat",
             "url": 1
         })
     else:
         doc_ref.update({
-            "title": "quat",
             "url": 0
         })
