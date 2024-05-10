@@ -1,2 +1,6 @@
-google-cloud-firestore
+
+firebase_admin
 streamlit
+pandas
+time
+threading
