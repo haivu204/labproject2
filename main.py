@@ -93,14 +93,6 @@ def main():
 
         df2 = pd.DataFrame.from_dict(first_100_fields, orient= 'index')
         st.line_chart(df2)
-        if "last_update" not in st.session_state:
-            st.session_state.last_update = time.time()
-
-        if time.time() - st.session_state.last_update >= 10:
-            st.session_state.last_update = time.time()
-
-            # Schedule the callback to run every minute
-        st.query_params.update(__callback=main)
         time.sleep(1)
         st.rerun()
 if __name__ == "__main__":
