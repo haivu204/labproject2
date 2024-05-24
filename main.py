@@ -55,7 +55,7 @@ def main():
         col1, col2, col3, col4 = st.columns(4)
         col1.metric(label="Tempurature", value=int(doc0.get("nhietdo1")), delta=1)
         col2.metric(label="Huminity", value=int(doc0.get("doam1")), delta=1)
-        col3.metric(label="CO2", value=int(doc0.get("co2")), delta=1)
+        col3.metric(label="CO2", value=int(doc0.get("co21")), delta=1)
         col4.metric(label="Current", value=int(doc0.get("dongdien")), delta=1)
 
 
