@@ -106,7 +106,7 @@ def main():
         tem = st.slider("nhiet do phong (do c)", 15, 30)
         col1, col2, col3, col4 = st.columns(4)
 
-       Fan = col1.form_submit_button("Fan")
+       Fan = col1.button("Fan")
         Cooling = col2.button("COOLING")
         Stop = col3.button("STOP")
 
