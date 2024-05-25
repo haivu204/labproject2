@@ -106,7 +106,7 @@ def main():
         tem = st.slider("nhiet do phong (do c)", 15, 30)
         col1, col2, col3, col4 = st.columns(4)
 
-       Fan = col1.checkbox("Fan")
+        Fan = col1.checkbox("Fan")
         Cooling = col2.checkbox("COOLING")
         Stop = col3.checkbox("STOP")
 
