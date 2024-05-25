@@ -108,14 +108,13 @@ def main():
 
         Fan = col1.checkbox("Fan")
         Cooling = col2.checkbox("COOLING")
-        Stop = col3.checkbox("STOP")
-
+      
         data = {
             "co2": co2,
             "tem": tem,
             "Fan": Fan,
             "Cooling": Cooling,
-            "Stop": Stop
+           
         }
        
 
