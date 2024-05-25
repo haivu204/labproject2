@@ -109,18 +109,18 @@ def main():
         Fan = col1.checkbox("Fan")
         Cooling = col2.checkbox("COOLING")
       
-        data = {
-            "co2": co2,
-            "tem": tem,
-            "Fan": Fan,
-            "Cooling": Cooling,
+        # data = {
+        #     "co2": co2,
+        #     "tem": tem,
+        #     "Fan": Fan,
+        #     "Cooling": Cooling,
            
-        }
+        # }
        
 
-                # Create a document in Firestore
-        doc_ref = db.collection('haidata').document('control')
-        doc_ref.set(data)
+        #         # Create a document in Firestore
+        # doc_ref = db.collection('haidata').document('control')
+        # doc_ref.set(data)
         time.sleep(1)
         st.rerun()
 if __name__ == "__main__":
