@@ -7,12 +7,17 @@ import threading
 import time
 
 
+
+
 if not firebase_admin._apps:
     # Initialize Firebase Admin SDK
     cred = credentials.Certificate("firebasekey.json")
     firebase_admin.initialize_app(cred)
 
 db = firestore.client()
+
+data = {'fan': '12', 'tem':34}
+db.collection('haidata').document('control').set(data)
 
 def flatten_dict(original_dict, name):
     flattened_dict = {}
@@ -93,10 +98,35 @@ def main():
 
         df2 = pd.DataFrame.from_dict(first_100_fields, orient= 'index')
         st.line_chart(df2)
+        if "last_update" not in st.session_state:
+            st.session_state.last_update = time.time()
+
+        if time.time() - st.session_state.last_update >= 10:
+            st.session_state.last_update = time.time()
+
+            # Schedule the callback to run every minute
+        st.query_params.update(__callback=main)
+
+        co2 = st.slider("nong do CO2 (ppm)", 488, 8000)
+        tem = st.slider("nhiet do phong (do c)", 15, 30)
+        col1, col2, col3, col4 = st.columns(4)
+        col1.button("FAN")
+        col2.button("COOLING")
+        col3.button("STOP")
+
+        data = {
+            "co2": co2,
+            "tem": tem
+        }
+
+        # Create a document in Firestore
+        doc_ref = db.collection('haidata').document('control')
+        doc_ref.set(data)
         time.sleep(1)
         st.rerun()
 if __name__ == "__main__":
     main()
+
 
 
 
