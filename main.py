@@ -49,7 +49,7 @@ def main():
     while 1:
         st.header("SINH VIEN NGHIEN CUU KHOA HOC-DH BKHN")
 
-        doc_ref0 = db.collection('haidata').document('realtime')
+        doc_ref0 = db.collection('truongdata').document('realtime')
         doc0 = doc_ref0.get()
 
         col1, col2, col3, col4 = st.columns(4)
